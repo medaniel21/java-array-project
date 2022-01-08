@@ -1,0 +1,53 @@
+import java.util.Random;
+public class Project4
+{
+    public static void main(String[] args) {
+        System.out.println();
+        int row = 4; //4*5 = 20
+        int column = 5;
+        int[][] array1 = setArray(row, column);
+        display(array1, row, column);
+        rowAvg(array1, row, column);
+        colAvg(array1, row, column);
+    }
+    
+    public static int[][] setArray(int row, int column) {
+        int[][] array1 = new int[row][column];
+        Random r = new Random();
+        for (int i = 0; i<row; i++) {
+            for (int j = 0; j<column; j++) {
+                array1[i][j] = r.nextInt(19) + 1;
+            }
+        }
+        return array1;
+    }
+    
+    public static void display(int[][] array1, int row, int column) {
+        for (int i =0; i<row; i++) {
+            for (int j =0; j<column; j++) {
+                System.out.printf("%3d ", array1[i][j]);
+            }
+            System.out.println();
+        }
+    }
+        
+    public static void rowAvg(int[][] array1, int row, int column) {
+        for (int i=0; i<row; i++) {
+            double avg = 0.0;
+            for (int j =0; j<column; j++) {
+                avg +=array1[i][j];
+            }
+            System.out.println("Row average of row " + (i+1) + " is: " + avg/column);
+        }
+    }
+    
+    public static void colAvg(int[][] array1, int row, int column) {
+        for (int i= 0; i<column; i++) {
+            double avg = 0.0;
+            for (int j = 0; j<row; j++) {
+                avg += array1[j][i];
+            }
+            System.out.println("Column average of column " + (i+1) + " is: " + avg/column);
+        }
+    }
+}
